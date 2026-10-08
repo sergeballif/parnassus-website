@@ -1,0 +1,22 @@
+# Private working notes (the repo may be public at launch)
+_TEMP-*.md
+
+# Original photo files in the folder root (copies live in assets/images)
+/*.png
+/*.jpg
+/*.jpeg
+/*.webp
+
+# Jekyll / Ruby / Node output
+_site/
+.jekyll-cache/
+.jekyll-metadata
+.sass-cache/
+.bundle/
+vendor/
+Gemfile.lock
+node_modules/
+
+# macOS / editors
+.DS_Store
+*.swp

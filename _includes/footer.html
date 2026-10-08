@@ -1,0 +1,30 @@
+{%- assign s = site.data.site -%}
+<footer class="site-footer">
+  <div class="wrap foot-cols">
+    <div class="foot-col">
+      <p class="foot-name">{{ s.name }}</p>
+      <address>{{ s.address.street }}<br>{{ s.address.city }}, {{ s.address.state }} {{ s.address.zip }}</address>
+      <p class="foot-line"><a href="tel:{{ s.phone_tel }}">{{ s.phone_display }}</a></p>
+      {%- if s.email != "" %}
+      <p class="foot-line"><a href="mailto:{{ s.email }}">{{ s.email }}</a></p>
+      {%- endif %}
+    </div>
+    <div class="foot-col">
+      <p class="foot-head" id="foot-season">Hours</p>
+      <div class="foot-rows" id="foot-rows">
+        <noscript>{% include hours-static.html %}</noscript>
+      </div>
+      <p class="foot-note">Closed on holidays.</p>
+    </div>
+    <div class="foot-col">
+      <p class="foot-head">Find us online</p>
+      <a class="foot-link" href="{{ s.links.bookshop }}">Bookshop.org</a>
+      <a class="foot-link" href="{{ s.links.librofm }}">Libro.fm</a>
+      <a class="foot-link" href="{{ s.links.facebook }}">Facebook</a>
+      <a class="foot-link" href="{{ s.links.instagram }}">Instagram</a>
+    </div>
+  </div>
+  <div class="wrap foot-legal">
+    <p>{{ s.nonaffiliation }}</p>
+  </div>
+</footer>

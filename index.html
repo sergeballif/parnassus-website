@@ -1,0 +1,104 @@
+---
+layout: default
+---
+{%- assign s = site.data.site -%}
+<main id="main">
+
+<section id="visit" class="hero">
+  <h1 class="sr-only">{{ s.name }}, {{ s.region }}</h1>
+  <div class="wrap hero-grid">
+    <div class="h-left">
+      <p class="eyebrow">{{ s.tagline }}</p>
+      <img class="hero-photo" src="{{ '/assets/images/dogs-on-cushion.jpg' | relative_url }}" width="1536" height="1024" alt="Two fluffy dogs resting on a teal cushion in front of a bookshelf">
+      <div class="btn-row">
+        <a class="btn btn--orange" href="{{ s.address.maps_url }}">Get directions</a>
+        <a class="btn btn--outline-light" href="tel:{{ s.phone_tel }}">Call {{ s.phone_display }}</a>
+      </div>
+    </div>
+    <div class="h-map">
+      {% include walkmap.html %}
+    </div>
+    <div class="h-info">
+      <p class="addr">{{ s.address.street }}, {{ s.address.city }}, {{ s.address.state }} {{ s.address.zip }}</p>
+      <ul class="hp" id="hours-pill" aria-label="Opening hours"></ul>
+      <p class="sr-only" id="hours-status" aria-live="polite"></p>
+      <noscript>
+        <div class="hours-noscript">{% include hours-static.html %}</div>
+      </noscript>
+    </div>
+  </div>
+</section>
+
+<section id="about" class="about">
+  <div class="wrap about-inner">
+    <div class="about-text">
+      <h2 class="h2">{{ site.data.about.heading }}</h2>
+      {%- for p in site.data.about.paragraphs %}
+      <p class="lead">{{ p }}</p>
+      {%- endfor %}
+      {%- if site.data.about.welcome != "" %}
+      <p class="lead">{{ site.data.about.welcome }}</p>
+      {%- endif %}
+      <div class="btn-row">
+        <a class="btn btn--outline-teal btn--sm" href="{{ s.links.facebook }}">Facebook</a>
+        <a class="btn btn--outline-teal btn--sm" href="{{ s.links.instagram }}">Instagram</a>
+      </div>
+    </div>
+    <div class="about-photo">
+      <img src="{{ '/assets/images/aisle.webp' | relative_url }}" width="765" height="1020" loading="lazy" alt="An aisle of wooden bookshelves inside Parnassus Books">
+    </div>
+  </div>
+</section>
+
+<section id="shop" class="shop">
+  <div class="wrap shop-inner">
+    <h2 class="h2">Shop from anywhere</h2>
+    <p class="lead lead--narrow">Order through our Bookshop.org shop and the sale supports Parnassus directly. Audiobooks come through Libro.fm.</p>
+    <div class="btn-row">
+      <a class="btn btn--teal" href="{{ s.links.bookshop }}">Shop on Bookshop.org</a>
+      <a class="btn btn--outline-teal" href="{{ s.links.librofm }}">Audiobooks on Libro.fm</a>
+    </div>
+    <h3 class="kicker">Browse our lists</h3>
+    <ul class="chips">
+      {%- for name in site.data.lists %}
+      <li><a class="chip" href="{{ s.links.bookshop }}">{{ name }}</a></li>
+      {%- endfor %}
+    </ul>
+  </div>
+</section>
+
+<section class="order-band">
+  <div class="wrap order-inner">
+    <div class="order-text">
+      <h2 class="h2 h2--sm">Can't find it? We'll order it.</h2>
+      <p class="lead">Call us{% if s.email != "" %} or send an email{% endif %} with the title, and we'll get it in for you.{% if s.email != "" %} Email: <a href="mailto:{{ s.email }}">{{ s.email }}</a>{% endif %}</p>
+    </div>
+    <a class="btn btn--ink" href="tel:{{ s.phone_tel }}">Call {{ s.phone_display }}</a>
+  </div>
+</section>
+
+<section id="local" class="local">
+  <div class="wrap local-inner">
+    <div class="local-photo">
+      <img src="{{ '/assets/images/gifts-display.webp' | relative_url }}" width="765" height="1020" loading="lazy" alt="A glass display of Alaska whale books, mugs and map tote bags">
+    </div>
+    <div class="local-text">
+      <h2 class="h2">Made in Ketchikan</h2>
+      <p class="lead">Some of our best-loved titles are published right here.</p>
+      {%- for b in site.data.local_books %}
+      <article class="book-card">
+        <h3 class="book-title">{{ b.title }}</h3>
+        <p class="book-by">{{ b.byline }}</p>
+        {%- if b.blurb != "" %}
+        <p class="book-blurb">{{ b.blurb }}</p>
+        {%- endif %}
+      </article>
+      {%- endfor %}
+    </div>
+  </div>
+</section>
+
+</main>
+
+{% include hours-templates.html %}
+<script type="application/json" id="hours-data">{{ site.data.hours | jsonify }}</script>

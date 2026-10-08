@@ -1,0 +1,40 @@
+# ---------------------------------------------------------------
+# STORE HOURS — the only place hours are edited.
+# The page switches seasons by date (Alaska time) and highlights today.
+#   months: calendar months (1 = January) when the season applies
+#   days:   0 = Sunday ... 6 = Saturday
+#   open / close: 24-hour "HH:MM"   (use closed: true for a closed day)
+# ---------------------------------------------------------------
+timezone: America/Sitka
+
+seasons:
+  - name: summer
+    label: "Summer hours · May–Sep"
+    months: [5, 6, 7, 8, 9]
+    rows:
+      - label: Every day
+        days: [0, 1, 2, 3, 4, 5, 6]
+        open: "08:00"
+        close: "17:00"
+
+  - name: winter
+    label: "Winter hours · Oct–Apr"
+    months: [10, 11, 12, 1, 2, 3, 4]
+    rows:
+      - label: Monday
+        days: [1]
+        closed: true
+      - label: Tue–Sat
+        days: [2, 3, 4, 5, 6]
+        open: "10:00"
+        close: "17:00"
+      - label: Sunday
+        days: [0]
+        open: "12:00"
+        close: "16:00"
+
+# Dates the store is closed all day, as "YYYY-MM-DD". Still to be decided.
+holidays: []
+#  - "2027-01-01"
+#  - "2027-11-25"
+#  - "2027-12-25"

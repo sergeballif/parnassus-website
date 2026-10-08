@@ -1,0 +1,16 @@
+{%- assign s = site.data.site -%}
+<header class="site-header">
+  <div class="wrap header-inner">
+    <div>
+      <p class="brand">{{ s.name }}</p>
+      <p class="brand-sub">{{ s.region }}</p>
+    </div>
+    <nav class="nav" aria-label="Main">
+      <a href="#visit">Visit</a>
+      <a href="#about">About</a>
+      <a href="#shop">Shop online</a>
+      <a href="#local">Local books</a>
+      <a class="nav-call" href="tel:{{ s.phone_tel }}">Call us</a>
+    </nav>
+  </div>
+</header>

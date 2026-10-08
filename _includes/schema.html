@@ -1,0 +1,21 @@
+{%- assign s = site.data.site -%}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BookStore",
+  "name": {{ s.name | jsonify }},
+  "description": {{ site.description | strip | normalize_whitespace | jsonify }},
+  "url": {{ site.url | append: site.baseurl | jsonify }},
+  "telephone": {{ s.phone_tel | jsonify }},
+  "foundingDate": "{{ s.founded }}",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": {{ s.address.street | jsonify }},
+    "addressLocality": {{ s.address.city | jsonify }},
+    "addressRegion": {{ s.address.state | jsonify }},
+    "postalCode": {{ s.address.zip | jsonify }},
+    "addressCountry": "US"
+  },
+  "sameAs": [{{ s.links.facebook | jsonify }}, {{ s.links.instagram | jsonify }}, {{ s.links.bookshop | jsonify }}, {{ s.links.librofm | jsonify }}]
+}
+</script>

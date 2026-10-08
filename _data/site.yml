@@ -1,0 +1,27 @@
+name: Parnassus Books and Gifts
+short_name: Parnassus
+region: Ketchikan, Alaska
+tagline: "Ketchikan's own bookstore since 1985"
+founded: 1985
+
+address:
+  street: 105 Stedman St
+  city: Ketchikan
+  state: AK
+  zip: "99901"
+  maps_url: "https://www.google.com/maps/search/?api=1&query=105+Stedman+St+Ketchikan+AK+99901"
+
+phone_display: "(907) 225-7690"
+phone_tel: "+19072257690"
+
+# Store email is not set up yet. While this is empty, no email is shown anywhere.
+# Example when ready:  email: hello@parnassusak.com
+email: ""
+
+links:
+  bookshop: "https://bookshop.org/shop/parnassusak"
+  librofm: "https://libro.fm/parnassusak"
+  facebook: "https://www.facebook.com/profile.php?id=100057330593363"
+  instagram: "https://www.instagram.com/parnassusak/"
+
+nonaffiliation: "Parnassus Books and Gifts is independently owned in Ketchikan, Alaska, and is not affiliated with Parnassus Books in Nashville."

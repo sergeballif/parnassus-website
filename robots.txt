@@ -1,0 +1,9 @@
+---
+layout: null
+---
+{% if site.launched %}User-agent: *
+Allow: /
+{% else %}# Pre-launch: keep everything out of search engines.
+User-agent: *
+Disallow: /
+{% endif %}

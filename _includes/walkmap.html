@@ -1,0 +1,12 @@
+<div class="pbmap">
+  <div class="map-stage" id="map-stage">
+    {% include walkmap-svg.html %}
+    <div class="callout fade" style="--delay: 4.9s; --dur: .6s" aria-hidden="true">
+      <div class="c-time">5–8 minute walk</div>
+      <div class="c-addr">{{ site.data.site.address.street }}</div>
+    </div>
+  </div>
+  <button type="button" class="map-replay" id="map-replay" aria-label="Replay the walking route animation"></button>
+  <div class="map-credit">© <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap contributors</a></div>
+  <p id="pb-route-steps" class="sr-only">From any of the three cruise berths, walk inland to Parnassus Books and Gifts at {{ site.data.site.address.street }}. The walk takes about 5 to 8 minutes.</p>
+</div>

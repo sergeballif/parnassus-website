@@ -1,0 +1,7 @@
+{%- comment -%}Plain-text hours for visitors without JavaScript.{%- endcomment -%}
+{%- for season in site.data.hours.seasons -%}
+<p class="foot-note"><strong>{{ season.label }}</strong></p>
+{%- for r in season.rows -%}
+<div class="foot-row"><span>{{ r.label }}</span><span>{% if r.closed %}Closed{% else %}{{ r.open }}–{{ r.close }} (24-hour){% endif %}</span></div>
+{%- endfor -%}
+{%- endfor -%}

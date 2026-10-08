@@ -1,0 +1,31 @@
+# Parnassus Books and Gifts — Ketchikan, Alaska
+title: Parnassus Books and Gifts
+description: >-
+  Parnassus Books and Gifts is Ketchikan, Alaska's own bookstore since 1985.
+  Alaska books, local history, cards and gifts, five minutes' walk from the cruise docks.
+lang: en
+url: "https://parnassusak.com"
+baseurl: ""
+timezone: America/Sitka
+
+# ---------------------------------------------------------------
+# LAUNCH SWITCH. While false, every page carries
+# <meta name="robots" content="noindex, nofollow"> and robots.txt
+# disallows everything. Flip to true only at launch (see README.md).
+# ---------------------------------------------------------------
+launched: false
+
+# Keep these out of the published site.
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+  - _TEMP-parnassus-info.md
+  - BookstoreDogs.png
+  - Panaassus2.webp
+  - Panassus3.webp
+  - Parnassus1.webp
+  - Parnassus4.webp
+  - ParnassusOutside.webp
