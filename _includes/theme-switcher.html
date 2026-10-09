@@ -1,0 +1,7 @@
+{%- comment -%}Pre-launch preview control. Only included while launched is false.{%- endcomment -%}
+<div class="theme-switcher" role="group" aria-label="Preview color scheme (pre-launch only)">
+  <span>Colors</span>
+  {%- for t in site.data.themes %}
+  <button type="button" data-theme-btn="{{ t[0] }}" aria-pressed="{% if t[0] == site.color_theme %}true{% else %}false{% endif %}">{{ t[0] }}</button>
+  {%- endfor %}
+</div>

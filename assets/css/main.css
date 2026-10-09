@@ -4,56 +4,9 @@
 @font-face{font-family:'Nunito Sans';src:url('../fonts/nunito-sans-latin-wght-normal.woff2') format('woff2');font-weight:200 1000;font-style:normal;font-display:swap}
 @font-face{font-family:'Young Serif';src:url('../fonts/young-serif-latin-400-normal.woff2') format('woff2');font-weight:400;font-style:normal;font-display:swap}
 
-/* =====================================================================
-   COLOR SCHEME — every color on the site comes from the variables below.
-   To try a new scheme, change the values in this block only.
-   (Two things live outside CSS and need the same edit by hand:
-    assets/images/favicon.svg and the theme-color tag in _layouts/default.html.)
-   ===================================================================== */
+/* Colors live in _data/themes.yml (generated into assets/css/themes.css).
+   Everything below refers to them as var(--c-...). */
 :root{
-  /* Core palette */
-  --c-dark:#0B3F3E;            /* header, footer, deepest shade; map outlines, pin and ship line work */
-  --c-primary:#0F5E5C;         /* hero background and map water; main buttons; links */
-  --c-primary-bright:#5CC1B8;  /* bright tint of the primary (spare) */
-  --c-soft:#E6F3F1;            /* pale tint: Shop section, map land */
-  --c-paper:#FCFAF5;           /* page background; light fills */
-  --c-accent:#F28A3E;          /* orange: buttons, today's hours, map highlights */
-  --c-ink:#12302F;             /* text on the accent; dark buttons; map street lines */
-  --c-gold:#F6C27A;            /* small headings on dark backgrounds */
-
-  /* Text */
-  --c-text:#1E2B2B;            /* body text */
-  --c-text-soft:#33403F;       /* secondary text on white */
-  --c-text-muted:#3E5B5A;      /* small print on light backgrounds */
-  --c-accent-text:#B8470F;     /* accent shade that reads as text on white */
-
-  /* Surfaces and lines */
-  --c-card:#FFFFFF;            /* cards */
-  --c-border:#CFE3E0;          /* card borders */
-  --c-shadow:#000000;          /* drop shadows */
-
-  /* On dark backgrounds (header, hero, footer) */
-  --c-on-dark:#FFFFFF;
-  --c-on-dark-soft:#E4F6F3;
-  --c-on-dark-muted:#BFE9E4;
-  --c-on-dark-dim:#BFE0DC;     /* inactive hours segments */
-
-  /* Walking map */
-  --c-map-building:#C9E2DD;
-  --c-map-creek:#7DB8B1;
-  --c-accent-soft:#FBD2AE;     /* Creek Street label fill */
-  --c-route-1:#8E4BAF;         /* Berth 1 route (Berth 2 uses --c-accent) */
-  --c-route-3:#2F6DB5;         /* Berth 3 route */
-
-  /* Open/closed book in the hours pill */
-  --c-book-cover:#9A5A28;
-  --c-book-spine:#6E3E17;
-  --c-book-page:#F6EEDD;
-  --c-book-page-line:#DCCDAE;
-  --c-book-gutter:#C9B896;
-  --c-book-closed-text:#FFF3E8;
-
-  /* Fonts */
   --sans:'Nunito Sans',system-ui,-apple-system,'Segoe UI',sans-serif;
   --serif:'Young Serif',Georgia,serif;
 }
@@ -63,7 +16,7 @@ html{scroll-behavior:smooth}
 section[id]{scroll-margin-top:12px}
 img{max-width:100%}
 a{color:var(--c-primary)}
-:focus-visible{outline:3px solid var(--c-accent);outline-offset:3px}
+:focus-visible{outline:3px solid var(--c-focus);outline-offset:3px}
 p{margin:0}
 address{font-style:normal}
 
@@ -88,7 +41,7 @@ address{font-style:normal}
 .btn--outline-light{color:var(--c-on-dark);border-color:var(--c-on-dark)}
 .btn--teal{background:var(--c-primary);color:var(--c-on-dark);border-color:var(--c-primary);padding-left:26px;padding-right:26px}
 .btn--outline-teal{color:var(--c-primary);border-color:var(--c-primary);padding-left:26px;padding-right:26px}
-.btn--ink{background:var(--c-ink);color:var(--c-on-dark);border-color:var(--c-ink);padding-left:28px;padding-right:28px}
+.btn--ink{background:var(--c-on-band);color:var(--c-on-dark);border-color:var(--c-on-band);padding-left:28px;padding-right:28px}
 .btn--sm{min-height:46px;padding:10px 22px}
 .btn:hover{filter:brightness(1.08)}
 .btn--outline-light:hover{background:color-mix(in srgb,var(--c-on-dark) 12%,transparent);filter:none}
@@ -166,10 +119,10 @@ address{font-style:normal}
 @container (max-width:860px){.picks{grid-template-columns:1fr}}
 
 /* order band */
-.order-band{background:var(--c-accent);color:var(--c-ink)}
+.order-band{background:var(--c-band);color:var(--c-on-band)}
 .order-inner{padding-top:clamp(32px,5cqw,56px);padding-bottom:clamp(32px,5cqw,56px);display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px 40px}
 .order-text{flex:1 1 420px;min-width:0}
-.order-band a:not(.btn){color:var(--c-ink);font-weight:700}
+.order-band a:not(.btn){color:var(--c-on-band);font-weight:700}
 
 /* local */
 .local{background:var(--c-paper)}
@@ -216,16 +169,16 @@ address{font-style:normal}
 .fill-minor{fill:none;stroke:var(--c-paper);stroke-width:3.5;stroke-linecap:round;stroke-linejoin:round}
 .service{fill:none;stroke:var(--c-ink);stroke-opacity:.35;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
 .foot{fill:none;stroke:var(--c-ink);stroke-opacity:.4;stroke-width:1.6;stroke-dasharray:4 5;stroke-linecap:round}
-.cs-base{fill:none;stroke:var(--c-accent);stroke-opacity:.5;stroke-width:10;stroke-linecap:round;stroke-linejoin:round}
-.cs-pill{fill:var(--c-accent-soft);stroke:var(--c-accent);stroke-width:2}
+.cs-base{fill:none;stroke:var(--c-map-accent);stroke-opacity:.5;stroke-width:10;stroke-linecap:round;stroke-linejoin:round}
+.cs-pill{fill:var(--c-accent-soft);stroke:var(--c-map-accent);stroke-width:2}
 .cs-text{font:800 17px var(--sans);fill:var(--c-ink);text-anchor:middle;letter-spacing:.03em}
-.cs-lead{fill:none;stroke:var(--c-accent);stroke-width:2.5}
+.cs-lead{fill:none;stroke:var(--c-map-accent);stroke-width:2.5}
 .r-dots{fill:none;stroke-width:9;stroke-dasharray:0 16;stroke-linecap:round;stroke-linejoin:round}
 .r-mask{fill:none;stroke:#fff /* mask: must stay white */;stroke-width:22;stroke-linecap:round;stroke-linejoin:round}
 .start{fill:var(--c-paper);stroke-width:4.5}
-.c-b1{stroke:var(--c-route-1)}.c-b2{stroke:var(--c-accent)}.c-b3{stroke:var(--c-route-3)}
-.f-b1{fill:var(--c-route-1)}.f-b2{fill:var(--c-accent)}.f-b3{fill:var(--c-route-3)}
-.pin{fill:var(--c-accent);stroke:var(--c-dark);stroke-width:2.5;stroke-linejoin:round}
+.c-b1{stroke:var(--c-route-1)}.c-b2{stroke:var(--c-route-2)}.c-b3{stroke:var(--c-route-3)}
+.f-b1{fill:var(--c-route-1)}.f-b2{fill:var(--c-route-2)}.f-b3{fill:var(--c-route-3)}
+.pin{fill:var(--c-map-accent);stroke:var(--c-dark);stroke-width:2.5;stroke-linejoin:round}
 .pin-dot{fill:var(--c-paper)}
 .pin-shadow{fill:var(--c-ink);fill-opacity:.22}
 .ship-hull{fill:var(--c-paper);stroke:var(--c-dark);stroke-width:2.5;stroke-linejoin:round}
@@ -285,3 +238,9 @@ address{font-style:normal}
 .bk-frame{fill:none;stroke:var(--c-gold);stroke-opacity:.7;stroke-width:1.2}
 .book-o .book-text{fill:var(--c-ink)}
 .book-c .book-text{fill:var(--c-book-closed-text)}
+
+/* pre-launch color-theme switcher (not emitted once launched: true) */
+.theme-switcher{position:fixed;left:12px;bottom:12px;z-index:50;display:flex;flex-wrap:wrap;align-items:center;gap:6px;max-width:calc(100vw - 24px);padding:6px 8px;background:var(--c-card);color:var(--c-text);border:1.5px solid var(--c-border);border-radius:999px;box-shadow:0 6px 20px color-mix(in srgb,var(--c-shadow) 25%,transparent);font:700 13px/1 var(--sans)}
+.theme-switcher span{padding:0 4px}
+.theme-switcher button{font:inherit;cursor:pointer;min-height:32px;padding:0 12px;border-radius:999px;border:1.5px solid var(--c-primary);background:transparent;color:var(--c-primary)}
+.theme-switcher button[aria-pressed="true"]{background:var(--c-primary);color:var(--c-on-dark)}

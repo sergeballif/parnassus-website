@@ -136,4 +136,28 @@
       });
     }
   }
+
+  /* ---------- pre-launch color-theme switcher ---------- */
+  var switcher = document.querySelector('.theme-switcher');
+  if (switcher) {
+    var buttons = switcher.querySelectorAll('[data-theme-btn]');
+    var root = document.documentElement;
+    var markPressed = function () {
+      var current = root.getAttribute('data-theme');
+      Array.prototype.forEach.call(buttons, function (b) {
+        b.setAttribute('aria-pressed', b.getAttribute('data-theme-btn') === current ? 'true' : 'false');
+      });
+      var meta = document.querySelector('meta[name="theme-color"]');
+      if (meta) meta.setAttribute('content', getComputedStyle(root).getPropertyValue('--c-dark').trim());
+    };
+    Array.prototype.forEach.call(buttons, function (b) {
+      b.addEventListener('click', function () {
+        var name = b.getAttribute('data-theme-btn');
+        root.setAttribute('data-theme', name);
+        try { localStorage.setItem('pb-theme', name); } catch (e) {}
+        markPressed();
+      });
+    });
+    markPressed();
+  }
 })();

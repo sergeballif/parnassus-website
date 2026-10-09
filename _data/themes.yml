@@ -1,0 +1,137 @@
+# ---------------------------------------------------------------------
+# COLOR THEMES. Each entry is a complete preset; the site uses the one
+# named by `color_theme` in _config.yml. Before launch you can also try
+# any preset by clicking the "Colors" buttons at the bottom-left of the
+# page, or by adding ?theme=BlueTan to the address.
+#
+# To add a theme, copy one block, rename it, and change the values.
+# Every role must be present. What each role does:
+#   dark            header, footer, deepest shade; map outlines, pin and ship line work
+#   primary         hero background and map water; main buttons; links
+#   primary-bright  bright tint of the primary (spare)
+#   soft            pale section background (Shop); map land
+#   paper           page background; light fills
+#   accent          buttons, today's hours segment
+#   ink             text on the accent; map street lines; name-card text
+#   gold            small headings on dark backgrounds
+#   text, text-soft, text-muted   body text and its lighter shades
+#   accent-text     accent-family shade readable as text on white
+#   card, border    cards and their borders
+#   shadow          drop-shadow color
+#   on-dark*        text on dark backgrounds (header, hero, footer)
+#   band, on-band   the "Can't find it? We'll order it." strip and its text
+#   focus           keyboard-focus ring (must be visible on light and dark)
+#   map-*, route-*  walking map (map-accent = Creek Street highlight and pin)
+#   book-*          open/closed book above the hours
+# ---------------------------------------------------------------------
+
+BlueOrange:   # the original teal, orange and honey wood
+  dark: "#0B3F3E"
+  primary: "#0F5E5C"
+  primary-bright: "#5CC1B8"
+  soft: "#E6F3F1"
+  paper: "#FCFAF5"
+  accent: "#F28A3E"
+  ink: "#12302F"
+  gold: "#F6C27A"
+  text: "#1E2B2B"
+  text-soft: "#33403F"
+  text-muted: "#3E5B5A"
+  accent-text: "#B8470F"
+  card: "#FFFFFF"
+  border: "#CFE3E0"
+  shadow: "#000000"
+  on-dark: "#FFFFFF"
+  on-dark-soft: "#E4F6F3"
+  on-dark-muted: "#BFE9E4"
+  on-dark-dim: "#BFE0DC"
+  band: "#F28A3E"
+  on-band: "#12302F"
+  focus: "#F28A3E"
+  map-building: "#C9E2DD"
+  map-creek: "#7DB8B1"
+  map-accent: "#F28A3E"
+  accent-soft: "#FBD2AE"
+  route-1: "#8E4BAF"
+  route-2: "#F28A3E"
+  route-3: "#2F6DB5"
+  book-cover: "#9A5A28"
+  book-spine: "#6E3E17"
+  book-page: "#F6EEDD"
+  book-page-line: "#DCCDAE"
+  book-gutter: "#C9B896"
+  book-closed-text: "#FFF3E8"
+
+BlueTan:   # from #153448 (dark), #3C5B6F (hero), #948979 (accent), #DFD0B8
+  dark: "#153448"
+  primary: "#3C5B6F"
+  primary-bright: "#7F9BAD"
+  soft: "#DFD0B8"
+  paper: "#F4EFE6"
+  accent: "#948979"
+  ink: "#0E222F"
+  gold: "#DFD0B8"
+  text: "#1B2A33"
+  text-soft: "#3A4A55"
+  text-muted: "#52626D"
+  accent-text: "#6B6050"
+  card: "#FFFFFF"
+  border: "#CDBFA6"
+  shadow: "#000000"
+  on-dark: "#FFFFFF"
+  on-dark-soft: "#E9EEF2"
+  on-dark-muted: "#C2CFD8"
+  on-dark-dim: "#C2CFD8"
+  band: "#948979"
+  on-band: "#0E222F"
+  focus: "#D9822B"
+  map-building: "#CBBDA3"
+  map-creek: "#7F9BAD"
+  map-accent: "#B5481F"
+  accent-soft: "#E8DCC8"
+  route-1: "#8E4BAF"
+  route-2: "#B5481F"
+  route-3: "#1F5F99"
+  book-cover: "#8C7A5E"
+  book-spine: "#5F513D"
+  book-page: "#F2EAD9"
+  book-page-line: "#D8CBB4"
+  book-gutter: "#BFB093"
+  book-closed-text: "#FBF7EE"
+
+BlueBrown:   # from #0A2A4B (dark), #0E3C6D (hero), #F5FAF1 (accent), #4593C3, #46342F
+  dark: "#0A2A4B"
+  primary: "#0E3C6D"
+  primary-bright: "#4593C3"
+  soft: "#E5F0F7"
+  paper: "#FBFDF8"
+  accent: "#F5FAF1"
+  ink: "#46342F"
+  gold: "#9CC9E4"
+  text: "#2B211E"
+  text-soft: "#4A3C37"
+  text-muted: "#6B5C56"
+  accent-text: "#6F4A3A"
+  card: "#FFFFFF"
+  border: "#C9DCEA"
+  shadow: "#000000"
+  on-dark: "#FFFFFF"
+  on-dark-soft: "#E4EEF6"
+  on-dark-muted: "#B9D0E3"
+  on-dark-dim: "#B3CBE0"
+  band: "#4593C3"
+  on-band: "#071E36"
+  focus: "#4593C3"
+  map-building: "#CFE1EE"
+  map-creek: "#6FA9D0"
+  map-accent: "#A8643A"
+  accent-soft: "#F4E6DA"
+  route-1: "#8E4BAF"
+  route-2: "#A8643A"
+  route-3: "#0F7B6C"
+  book-cover: "#7B5443"
+  book-spine: "#46342F"
+  book-page: "#EEF3E8"
+  book-page-line: "#CFD8C6"
+  book-gutter: "#B3BFA8"
+  book-closed-text: "#F5FAF1"

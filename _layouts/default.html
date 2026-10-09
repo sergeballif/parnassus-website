@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="{{ site.lang }}">
+<html lang="{{ site.lang }}" data-theme="{{ site.color_theme }}">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -10,19 +10,36 @@
   {%- if page.title %}{% assign page_title = page.title | append: ' | ' | append: site.title %}{% endif %}
   <title>{{ page_title }}</title>
   <meta name="description" content="{{ site.description | strip | normalize_whitespace }}">
-  <meta name="theme-color" content="#0B3F3E">
+  <meta name="theme-color" content="{{ site.data.themes[site.color_theme].dark }}">
   <meta property="og:title" content="{{ page_title }}">
   <meta property="og:description" content="{{ site.description | strip | normalize_whitespace }}">
   <meta property="og:type" content="website">
   <link rel="icon" href="{{ '/assets/images/favicon.svg' | relative_url }}" type="image/svg+xml">
   <link rel="preload" href="{{ '/assets/fonts/nunito-sans-latin-wght-normal.woff2' | relative_url }}" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="{{ '/assets/fonts/young-serif-latin-400-normal.woff2' | relative_url }}" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="{{ '/assets/css/themes.css' | relative_url }}">
   <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
   <script>document.documentElement.classList.add('js');</script>
+  {%- unless site.launched %}
+  <script>
+  /* Pre-launch only: preview another color theme with ?theme=Name (remembered in this browser). */
+  (function () {
+    var names = [{% for t in site.data.themes %}"{{ t[0] }}"{% unless forloop.last %}, {% endunless %}{% endfor %}];
+    try {
+      var q = (location.search.match(/[?&]theme=([A-Za-z0-9_-]+)/) || [])[1];
+      if (q === 'reset') { localStorage.removeItem('pb-theme'); }
+      else if (q && names.indexOf(q) >= 0) { localStorage.setItem('pb-theme', q); }
+      var t = localStorage.getItem('pb-theme');
+      if (t && names.indexOf(t) >= 0) { document.documentElement.setAttribute('data-theme', t); }
+    } catch (e) {}
+  })();
+  </script>
+  {%- endunless %}
   {% include schema.html %}
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
+  {%- unless site.launched %}{% include theme-switcher.html %}{% endunless %}
   <div class="page">
     {% include header.html %}
     {{ content }}

@@ -20,15 +20,21 @@ Until the January 1, 2027 takeover:
 | "Made in Ketchikan" cards | `_data/local_books.yml` |
 | About text and new-owner welcome | `_data/about.yml` |
 | Page layout | `index.html`, `_includes/` |
-| Colors (one block of variables at the top), fonts, map styles | `assets/css/main.css` |
+| Color themes (presets) | `_data/themes.yml`, chosen by `color_theme` in `_config.yml` |
+| Layout styles, fonts, map styles | `assets/css/main.css` |
 | Hours logic, map animation | `assets/js/main.js` |
 | Walking map drawing (SVG) | `_includes/walkmap-svg.html` |
 
 The page picks summer or winter hours by date in Alaska time, highlights today, and shows an open or closed book. Empty values (`email`, `welcome`, book `blurb`) are hidden automatically.
 
-## Changing the color scheme
+## Color themes
 
-Every color is a variable in the `:root` block at the top of `assets/css/main.css` (names describe the role, e.g. `--c-primary`, `--c-accent`, `--c-dark`). Change the values there and the whole site, including the map and the open/closed book, follows. Two items sit outside the CSS and need the same edit by hand: `assets/images/favicon.svg` and the `theme-color` tag in `_layouts/default.html`.
+Colors live in `_data/themes.yml` as named presets: **BlueOrange** (the original), **BlueTan** and **BlueBrown**. Each preset lists every color role (what each role does is explained at the top of that file). The site uses the preset named by `color_theme` in `_config.yml`.
+
+- **Try them before launch:** click the "Colors" buttons at the bottom-left of the page, or add `?theme=BlueTan` to the address (`?theme=reset` clears it). The choice is remembered in your browser only. The buttons disappear automatically when `launched: true`.
+- **Add a theme:** copy a block in `_data/themes.yml`, rename it and change the values. It shows up in the buttons by itself.
+- **Make one the site's theme:** set `color_theme` in `_config.yml`.
+- `assets/css/themes.css` is generated from the data file; don't edit it. Two things sit outside the themes and need a hand edit if the dark color changes: `assets/images/favicon.svg` (the tab icon).
 
 ## Staff picks (Google Sheet)
 
@@ -66,7 +72,7 @@ Then open http://127.0.0.1:4000/ (only visible on your own computer).
 2. Set up the staff picks sheet (above) and add the Bookshop.org affiliate ID to `_data/site.yml`.
 3. Replace the placeholder photos in `assets/images/` with real ones.
 4. Create the GitHub repo and push. Decide public or private (Pages works either way on a paid plan; free plans need a public repo).
-5. In `_config.yml` set `launched: true`.
+5. In `_config.yml` set `color_theme` to the final theme and `launched: true`.
 6. GitHub repo, Settings, Pages: deploy from branch `main`, folder `/ (root)`. Set the custom domain to `parnassusak.com`.
 7. At the registrar (name.com) DNS:
    - Four `A` records for `@`: 185.199.108.153, 185.199.109.153, 185.199.110.153, 185.199.111.153
