@@ -20,11 +20,15 @@ Until the January 1, 2027 takeover:
 | "Made in Ketchikan" cards | `_data/local_books.yml` |
 | About text and new-owner welcome | `_data/about.yml` |
 | Page layout | `index.html`, `_includes/` |
-| Colors, fonts, map styles | `assets/css/main.css` |
+| Colors (one block of variables at the top), fonts, map styles | `assets/css/main.css` |
 | Hours logic, map animation | `assets/js/main.js` |
 | Walking map drawing (SVG) | `_includes/walkmap-svg.html` |
 
 The page picks summer or winter hours by date in Alaska time, highlights today, and shows an open or closed book. Empty values (`email`, `welcome`, book `blurb`) are hidden automatically.
+
+## Changing the color scheme
+
+Every color is a variable in the `:root` block at the top of `assets/css/main.css` (names describe the role, e.g. `--c-primary`, `--c-accent`, `--c-dark`). Change the values there and the whole site, including the map and the open/closed book, follows. Two items sit outside the CSS and need the same edit by hand: `assets/images/favicon.svg` and the `theme-color` tag in `_layouts/default.html`.
 
 ## Staff picks (Google Sheet)
 
