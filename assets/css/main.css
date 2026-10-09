@@ -102,6 +102,14 @@ address{font-style:normal}
 /* shop */
 .shop{background:var(--c-soft)}
 .shop-inner{padding-top:clamp(36px,6cqw,72px);padding-bottom:clamp(36px,6cqw,72px);display:flex;flex-direction:column;gap:22px}
+.book-search{margin:28px 0 8px;max-width:620px}
+.book-search-label{display:block;margin:0 0 8px}
+.book-search-row{display:flex;gap:10px;flex-wrap:wrap}
+.book-search-input{flex:1 1 240px;min-width:0;min-height:48px;box-sizing:border-box;padding:12px 20px;border:2px solid var(--c-border);border-radius:999px;background:var(--c-card);color:var(--c-text);font:inherit}
+.book-search-input::placeholder{color:var(--c-text-muted)}
+.book-search-input:focus-visible{outline:3px solid var(--c-focus);outline-offset:2px;border-color:var(--c-primary)}
+.book-search .btn{cursor:pointer;font:inherit;font-weight:700}
+.book-search-note{margin:8px 0 0;font-size:.875rem;color:var(--c-text-muted)}
 .picks{margin:0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
 .pick{display:grid;grid-template-columns:112px minmax(0,1fr);gap:16px;align-items:start;background:var(--c-card);border:1.5px solid var(--c-border);border-radius:18px;padding:16px}
 .pick-cover-link{display:block}

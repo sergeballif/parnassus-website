@@ -137,6 +137,21 @@
     }
   }
 
+  /* ---------- Bookshop.org search: visit our shop first so the sale is credited to us, then run the search ---------- */
+  var bs = document.getElementById('book-search');
+  if (bs) {
+    bs.addEventListener('submit', function (e) {
+      var q = bs.elements['keywords'].value.trim();
+      if (!q) { return; }
+      var w;
+      try { w = window.open(bs.getAttribute('data-shop'), '_blank'); } catch (err) { w = null; }
+      if (!w) { return; }                      /* popup blocked: fall back to the plain form */
+      e.preventDefault();
+      var url = bs.action + '?keywords=' + encodeURIComponent(q);
+      setTimeout(function () { try { w.location.href = url; } catch (err) { window.open(url, '_blank'); } }, 2000);
+    });
+  }
+
   /* ---------- pre-launch color-theme switcher ---------- */
   var switcher = document.querySelector('.theme-switcher');
   if (switcher) {

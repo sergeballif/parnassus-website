@@ -58,6 +58,14 @@ layout: default
       <a class="btn btn--teal" href="{{ s.links.bookshop }}">Shop on Bookshop.org</a>
       <a class="btn btn--outline-teal" href="{{ s.links.librofm }}">Audiobooks on Libro.fm</a>
     </div>
+    <form class="book-search" id="book-search" action="https://bookshop.org/beta-search" method="get" target="_blank" role="search" data-shop="{{ s.links.bookshop }}">
+      <label class="kicker book-search-label" for="book-q">Search for a book</label>
+      <div class="book-search-row">
+        <input class="book-search-input" id="book-q" name="keywords" type="search" placeholder="Title, author or ISBN" autocomplete="off" required>
+        <button class="btn btn--teal" type="submit">Search Bookshop.org</button>
+      </div>
+      <p class="book-search-note">Opens in a new tab on our Bookshop.org shop.</p>
+    </form>
     <h3 class="kicker">Staff picks</h3>
     <ul class="picks">
       {%- for p in site.data.staff_picks limit: 3 %}
