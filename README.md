@@ -29,9 +29,9 @@ The page picks summer or winter hours by date in Alaska time, highlights today, 
 
 ## Color themes
 
-Colors live in `_data/themes.yml` as named presets: **BlueOrange** (the original), **BlueTan** and **BlueBrown**. Each preset lists every color role (what each role does is explained at the top of that file). The site uses the preset named by `color_theme` in `_config.yml`.
+Colors live in `_data/themes.yml` as named presets (BlueOrange is the original; the site currently uses **Beachwood**). Each preset lists every color role (what each role does is explained at the top of that file). The site uses the preset named by `color_theme` in `_config.yml`.
 
-- **Try them before launch:** click the "Colors" buttons at the bottom-left of the page, or add `?theme=BlueTan` to the address (`?theme=reset` clears it). The choice is remembered in your browser only. The buttons disappear automatically when `launched: true`.
+- **Try them before launch:** set `theme_switcher: true` in `_config.yml`, then click the "Colors" buttons at the bottom-left of the page, or add `?theme=BlueTan` to the address (`?theme=reset` clears it). The choice is remembered in your browser only. The buttons are hidden when `theme_switcher` is false (the default now) and always when `launched: true`.
 - **Add a theme:** copy a block in `_data/themes.yml`, rename it and change the values. It shows up in the buttons by itself.
 - **Make one the site's theme:** set `color_theme` in `_config.yml`.
 - `assets/css/themes.css` is generated from the data file; don't edit it. Two things sit outside the themes and need a hand edit if the dark color changes: `assets/images/favicon.svg` (the tab icon).

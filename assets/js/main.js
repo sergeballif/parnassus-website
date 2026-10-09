@@ -1,5 +1,5 @@
 /* Parnassus Books and Gifts
-   1. Hours: picks summer/winter by date (Alaska time), highlights today, shows the open/closed book.
+   1. Hours: picks summer/winter by date (Alaska time), highlights today, shows an Open now / Closed callout.
    2. Walking map: draws itself when scrolled into view; click the map to replay.
    Hours come from _data/hours.yml (embedded in the page as JSON). */
 (function () {
@@ -54,8 +54,6 @@
     var status = document.getElementById('hours-status');
     var footHead = document.getElementById('foot-season');
     var footRows = document.getElementById('foot-rows');
-    var tplOpen = document.getElementById('tpl-book-open');
-    var tplClosed = document.getElementById('tpl-book-closed');
     if (!pill || !H.seasons || !H.seasons.length) return;
 
     var now = nowInStore(H.timezone || 'America/Sitka');
@@ -71,8 +69,9 @@
       var li = el('li', cur ? 'is-current' : '');
       li.setAttribute('aria-current', cur ? 'true' : 'false');
       if (cur) {
-        var tpl = isOpen ? tplOpen : tplClosed;
-        if (tpl) li.appendChild(tpl.content.cloneNode(true));
+        var badge = el('span', 'status-badge ' + (isOpen ? 'is-open' : 'is-closed'), isOpen ? 'Open now' : 'Closed');
+        badge.setAttribute('aria-hidden', 'true');
+        li.appendChild(badge);
       }
       var seg = el('div', 'seg');
       seg.appendChild(el('span', 'seg-day', r.label));

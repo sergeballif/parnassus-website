@@ -20,9 +20,9 @@
   <link rel="stylesheet" href="{{ '/assets/css/themes.css' | relative_url }}">
   <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
   <script>document.documentElement.classList.add('js');</script>
-  {%- unless site.launched %}
+  {%- if site.theme_switcher and site.launched != true %}
   <script>
-  /* Pre-launch only: preview another color theme with ?theme=Name (remembered in this browser). */
+  /* Theme preview only: preview another color theme with ?theme=Name (remembered in this browser). */
   (function () {
     var names = [{% for t in site.data.themes %}"{{ t[0] }}"{% unless forloop.last %}, {% endunless %}{% endfor %}];
     try {
@@ -34,12 +34,12 @@
     } catch (e) {}
   })();
   </script>
-  {%- endunless %}
+  {%- endif %}
   {% include schema.html %}
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
-  {%- unless site.launched %}{% include theme-switcher.html %}{% endunless %}
+  {%- if site.theme_switcher and site.launched != true %}{% include theme-switcher.html %}{% endif %}
   <div class="page">
     {% include header.html %}
     {{ content }}

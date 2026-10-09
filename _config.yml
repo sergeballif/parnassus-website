@@ -9,7 +9,9 @@ baseurl: ""
 timezone: America/Sitka
 
 # Color theme: a name from _data/themes.yml (BlueOrange, BlueTan, BlueBrown, ...).
-color_theme: BlueOrange
+color_theme: Beachwood
+# Set to true to show the row of color-theme buttons (bottom-left) and allow ?theme=Name previews while choosing colors.
+theme_switcher: false
 
 # ---------------------------------------------------------------
 # LAUNCH SWITCH. While false, every page carries
