@@ -16,6 +16,8 @@ concurrency:
 
 jobs:
   update:
+    # Does nothing until the STAFF_PICKS_CSV_URL repo variable is set.
+    if: ${{ vars.STAFF_PICKS_CSV_URL != '' }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4

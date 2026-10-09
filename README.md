@@ -68,11 +68,11 @@ Then open http://127.0.0.1:4000/ (only visible on your own computer).
 
 ## Launch checklist (around January 1, 2027)
 
-1. Fill in `email` in `_data/site.yml`, the new-owner welcome in `_data/about.yml`, the book blurbs, and the holiday dates in `_data/hours.yml`.
+1. Update `email` in `_data/site.yml` if the store gets its own address (it is Charlotte's `parnassusak@gmail.com` for now). Fill in the new-owner welcome in `_data/about.yml`, the book blurbs, and the holiday dates in `_data/hours.yml`.
 2. Set up the staff picks sheet (above) and add the Bookshop.org affiliate ID to `_data/site.yml`.
 3. Replace the placeholder photos in `assets/images/` with real ones.
-4. Create the GitHub repo and push. Decide public or private (Pages works either way on a paid plan; free plans need a public repo).
-5. In `_config.yml` set `color_theme` to the final theme and `launched: true`.
+4. The GitHub repo is `sergeballif/parnassus-website` (free plans need a public repo for Pages). The `CNAME` file in the root tells Pages to serve `parnassusak.com`; don't delete it.
+5. In `_config.yml` set `launched: true` (this removes the noindex tag and lets search engines in). Until then the site is online but asks Google not to list it.
 6. GitHub repo, Settings, Pages: deploy from branch `main`, folder `/ (root)`. Set the custom domain to `parnassusak.com`.
 7. At the registrar (name.com) DNS:
    - Four `A` records for `@`: 185.199.108.153, 185.199.109.153, 185.199.110.153, 185.199.111.153

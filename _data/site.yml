@@ -14,9 +14,9 @@ address:
 phone_display: "(907) 225-7690"
 phone_tel: "+19072257690"
 
-# Store email is not set up yet. While this is empty, no email is shown anywhere.
-# Example when ready:  email: hello@parnassusak.com
-email: ""
+# Store email shown in the footer and the special-order band. Currently Charlotte's address;
+# change it here if the store gets a new one. Leave empty to hide email everywhere.
+email: "parnassusak@gmail.com"
 
 # Bookshop.org affiliate ID (the number in your Bookshop.org links, bookshop.org/a/<ID>/<ISBN>).
 # While empty, each Staff Pick links to the Parnassus shop home page instead.
