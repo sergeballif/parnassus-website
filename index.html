@@ -19,8 +19,8 @@ layout: default
       {% include walkmap.html %}
     </div>
     <div class="h-info">
-      <p class="addr">{{ s.address.street }}, {{ s.address.city }}, {{ s.address.state }} {{ s.address.zip }}</p>
       <ul class="hp" id="hours-pill" aria-label="Opening hours"></ul>
+      <p class="addr">{{ s.address.street }}, {{ s.address.city }}, {{ s.address.state }} {{ s.address.zip }}</p>
       <p class="sr-only" id="hours-status" aria-live="polite"></p>
       <noscript>
         <div class="hours-noscript">{% include hours-static.html %}</div>

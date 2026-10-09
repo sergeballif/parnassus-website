@@ -71,9 +71,9 @@ address{font-style:normal}
 .h-left{grid-area:left;min-width:0;display:flex;flex-direction:column;gap:20px;align-items:flex-start}
 .h-left .btn-row{margin-top:6px}
 .h-map{grid-area:map;min-width:0}
-.h-info{grid-area:info;min-width:0;display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:flex-start;gap:12px 32px;border-top:1px solid rgba(255,255,255,.28);padding-top:24px}
+.h-info{grid-area:info;min-width:0;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;gap:0;border-top:1px solid rgba(255,255,255,.28);padding-top:24px}
 .hero-photo{display:block;width:100%;max-width:480px;height:auto;aspect-ratio:3/2;object-fit:cover;border-radius:22px;box-shadow:0 18px 40px rgba(0,0,0,.28)}
-.addr{font-family:var(--sans);font-weight:700;font-size:clamp(16px,1.6cqw,19px);line-height:1.2;padding-bottom:12px;white-space:nowrap}
+.addr{font-family:var(--sans);font-weight:700;font-size:clamp(16px,1.6cqw,19px);line-height:1.2;margin-top:8px;text-align:center;white-space:nowrap}
 .hours-noscript{width:100%;color:#E4F6F3}
 
 /* hours pill (segmented) */
@@ -94,7 +94,7 @@ address{font-style:normal}
   .hero-grid{grid-template-columns:minmax(0,1fr);grid-template-areas:"left" "info" "map";gap:28px}
   .h-info{border-top:0;padding-top:0}
   .hp{width:fit-content;max-width:100%;box-sizing:border-box}
-  .addr{white-space:normal;padding-bottom:0}
+  .addr{white-space:normal}
   .seg{padding:5px 6px;font-size:14px}
 }
 
