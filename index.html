@@ -55,8 +55,8 @@ layout: default
     <h2 class="h2">Shop from anywhere</h2>
     <p class="lead lead--narrow">Order through our Bookshop.org shop and the sale supports Parnassus directly. Audiobooks come through Libro.fm.</p>
     <div class="btn-row">
-      <a class="btn btn--teal" href="{{ s.links.bookshop }}">Shop on Bookshop.org</a>
-      <a class="btn btn--outline-teal" href="{{ s.links.librofm }}">Audiobooks on Libro.fm</a>
+      <a class="btn btn--teal" href="{{ s.links.bookshop }}" target="_blank" rel="noopener">Shop on Bookshop.org<span class="sr-only"> (opens in a new tab)</span></a>
+      <a class="btn btn--outline-teal" href="{{ s.links.librofm }}" target="_blank" rel="noopener">Audiobooks on Libro.fm<span class="sr-only"> (opens in a new tab)</span></a>
     </div>
     <form class="book-search" id="book-search" action="https://bookshop.org/beta-search" method="get" target="_blank" role="search" data-shop="{{ s.links.bookshop }}">
       <label class="kicker book-search-label" for="book-q">Search for a book</label>
@@ -72,7 +72,7 @@ layout: default
       {%- assign buy = s.links.bookshop %}
       {%- if s.bookshop_affiliate_id != "" and p.isbn != "" %}{% capture buy %}https://bookshop.org/a/{{ s.bookshop_affiliate_id }}/{{ p.isbn }}{% endcapture %}{% endif %}
       <li class="pick">
-        <a class="pick-cover-link" href="{{ buy }}" tabindex="-1" aria-hidden="true">
+        <a class="pick-cover-link" href="{{ buy }}" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
           {%- if p.cover != "" %}
           <img class="pick-cover" src="{{ p.cover | relative_url }}" width="200" height="300" loading="lazy" alt="">
           {%- else %}
@@ -81,7 +81,7 @@ layout: default
         </a>
         <div class="pick-body">
           <p class="pick-by">{% if p.picker != "" %}{{ p.picker | escape }}&rsquo;s Pick{% else %}Staff Pick{% endif %}</p>
-          <h4 class="pick-title"><a href="{{ buy }}">{{ p.title | escape }}</a></h4>
+          <h4 class="pick-title"><a href="{{ buy }}" target="_blank" rel="noopener">{{ p.title | escape }}<span class="sr-only"> (opens in a new tab)</span></a></h4>
           {%- if p.author != "" %}
           <p class="pick-author">{{ p.author | escape }}</p>
           {%- endif %}
