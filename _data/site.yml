@@ -20,7 +20,7 @@ email: ""
 
 # Bookshop.org affiliate ID (the number in your Bookshop.org links, bookshop.org/a/<ID>/<ISBN>).
 # While empty, each Staff Pick links to the Parnassus shop home page instead.
-bookshop_affiliate_id: ""
+bookshop_affiliate_id: "1033"
 
 links:
   bookshop: "https://bookshop.org/shop/parnassusak"
