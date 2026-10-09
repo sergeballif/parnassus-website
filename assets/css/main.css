@@ -109,9 +109,21 @@ address{font-style:normal}
 /* shop */
 .shop{background:var(--pale)}
 .shop-inner{padding-top:clamp(36px,6cqw,72px);padding-bottom:clamp(36px,6cqw,72px);display:flex;flex-direction:column;gap:22px}
-.chips{margin:0;padding:0;list-style:none;display:flex;flex-wrap:wrap;gap:10px}
-.chip{display:inline-flex;align-items:center;min-height:44px;box-sizing:border-box;padding:9px 16px;background:#fff;color:var(--teal);border:1.5px solid var(--teal);border-radius:999px;font-weight:600;font-size:16px;text-decoration:none}
-.chip:hover{background:var(--teal);color:#fff}
+.picks{margin:0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.pick{display:grid;grid-template-columns:112px minmax(0,1fr);gap:16px;align-items:start;background:#fff;border:1.5px solid #CFE3E0;border-radius:18px;padding:16px}
+.pick-cover-link{display:block}
+.pick-cover{display:block;width:100%;height:auto;aspect-ratio:2/3;object-fit:cover;border-radius:6px;box-shadow:0 6px 16px rgba(11,63,62,.25)}
+.pick-cover--blank{box-sizing:border-box;display:flex;flex-direction:column;justify-content:center;gap:8px;padding:10px;text-align:center;color:#FCFAF5;background:linear-gradient(160deg,var(--teal) 0%,var(--teal-deep) 100%);border-left:6px solid var(--orange);overflow:hidden;overflow-wrap:break-word}
+.pc-title{font-family:var(--serif);font-size:14px;line-height:1.15}
+.pc-author{font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--gold);font-weight:700}
+.pick-by{font-size:12px;letter-spacing:.1em;text-transform:uppercase;font-weight:800;color:#B8470F}
+.pick-title,.pick-blurb{overflow-wrap:anywhere}
+.pick-title{font-family:var(--serif);font-weight:400;font-size:20px;line-height:1.2;margin:4px 0 0}
+.pick-title a{color:var(--ink);text-decoration:none}
+.pick-title a:hover{text-decoration:underline;text-underline-offset:3px}
+.pick-author{font-weight:700;color:var(--teal);margin-top:2px}
+.pick-blurb{margin-top:8px;font-size:15.5px;line-height:1.45;color:#33403F}
+@container (max-width:860px){.picks{grid-template-columns:1fr}}
 
 /* order band */
 .order-band{background:var(--orange);color:var(--ink)}

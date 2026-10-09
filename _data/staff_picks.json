@@ -1,0 +1,26 @@
+[
+  {
+    "picker": "Serge",
+    "title": "Placeholder Title One",
+    "author": "Author One",
+    "isbn": "",
+    "blurb": "A short note on why a bookseller loves this one goes here. The real picks arrive from the Google Sheet.",
+    "cover": ""
+  },
+  {
+    "picker": "Jenny",
+    "title": "Placeholder Title Two",
+    "author": "Author Two",
+    "isbn": "",
+    "blurb": "A short note on why a bookseller loves this one goes here. The real picks arrive from the Google Sheet.",
+    "cover": ""
+  },
+  {
+    "picker": "",
+    "title": "Placeholder Title Three",
+    "author": "Author Three",
+    "isbn": "",
+    "blurb": "A short note on why a bookseller loves this one goes here. The real picks arrive from the Google Sheet.",
+    "cover": ""
+  }
+]

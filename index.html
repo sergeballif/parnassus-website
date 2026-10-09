@@ -58,10 +58,30 @@ layout: default
       <a class="btn btn--teal" href="{{ s.links.bookshop }}">Shop on Bookshop.org</a>
       <a class="btn btn--outline-teal" href="{{ s.links.librofm }}">Audiobooks on Libro.fm</a>
     </div>
-    <h3 class="kicker">Browse our lists</h3>
-    <ul class="chips">
-      {%- for name in site.data.lists %}
-      <li><a class="chip" href="{{ s.links.bookshop }}">{{ name }}</a></li>
+    <h3 class="kicker">Staff picks</h3>
+    <ul class="picks">
+      {%- for p in site.data.staff_picks limit: 3 %}
+      {%- assign buy = s.links.bookshop %}
+      {%- if s.bookshop_affiliate_id != "" and p.isbn != "" %}{% capture buy %}https://bookshop.org/a/{{ s.bookshop_affiliate_id }}/{{ p.isbn }}{% endcapture %}{% endif %}
+      <li class="pick">
+        <a class="pick-cover-link" href="{{ buy }}" tabindex="-1" aria-hidden="true">
+          {%- if p.cover != "" %}
+          <img class="pick-cover" src="{{ p.cover | relative_url }}" width="200" height="300" loading="lazy" alt="">
+          {%- else %}
+          <span class="pick-cover pick-cover--blank"><span class="pc-title">{{ p.title | escape }}</span><span class="pc-author">{{ p.author | escape }}</span></span>
+          {%- endif %}
+        </a>
+        <div class="pick-body">
+          <p class="pick-by">{% if p.picker != "" %}{{ p.picker | escape }}&rsquo;s Pick{% else %}Staff Pick{% endif %}</p>
+          <h4 class="pick-title"><a href="{{ buy }}">{{ p.title | escape }}</a></h4>
+          {%- if p.author != "" %}
+          <p class="pick-author">{{ p.author | escape }}</p>
+          {%- endif %}
+          {%- if p.blurb != "" %}
+          <p class="pick-blurb">{{ p.blurb | escape }}</p>
+          {%- endif %}
+        </div>
+      </li>
       {%- endfor %}
     </ul>
   </div>

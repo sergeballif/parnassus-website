@@ -18,6 +18,10 @@ phone_tel: "+19072257690"
 # Example when ready:  email: hello@parnassusak.com
 email: ""
 
+# Bookshop.org affiliate ID (the number in your Bookshop.org links, bookshop.org/a/<ID>/<ISBN>).
+# While empty, each Staff Pick links to the Parnassus shop home page instead.
+bookshop_affiliate_id: ""
+
 links:
   bookshop: "https://bookshop.org/shop/parnassusak"
   librofm: "https://libro.fm/parnassusak"
