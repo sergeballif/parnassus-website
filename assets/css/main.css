@@ -59,7 +59,7 @@ address{font-style:normal}
 .nav a.nav-call:hover{text-decoration:none;filter:brightness(1.08)}
 
 /* hero */
-.hero{--water:var(--c-primary);background:var(--water);color:var(--c-on-dark)}
+.hero{background:var(--c-primary);color:var(--c-on-dark)}
 .hero-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.3fr);grid-template-areas:"left map" "info info";gap:32px 48px;align-items:center;padding-top:clamp(32px,6cqw,72px);padding-bottom:clamp(32px,6cqw,72px)}
 .h-left{grid-area:left;min-width:0;display:flex;flex-direction:column;gap:20px;align-items:flex-start}
 .h-left .btn-row{margin-top:6px}
@@ -160,7 +160,7 @@ address{font-style:normal}
 
 /* walking map */
 .pbmap{container-type:inline-size;container-name:pbmap;position:relative;background:var(--c-paper);color:var(--c-ink);font-family:var(--sans);overflow:hidden}
-.map-stage{position:relative;background:var(--water,var(--c-primary))}
+.map-stage{position:relative;background:var(--c-map-water)}
 .map-svg{display:block;width:100%;height:auto}
 .map-replay{position:absolute;top:0;left:0;width:100%;height:100%;z-index:2;background:transparent;border:0;margin:0;padding:0;cursor:pointer;outline-offset:-4px}
 .map-credit{position:absolute;right:8px;bottom:6px;z-index:3;font-size:11px;line-height:1.3;color:var(--c-text-muted);background:color-mix(in srgb,var(--c-paper) 88%,transparent);border-radius:6px;padding:2px 7px}
