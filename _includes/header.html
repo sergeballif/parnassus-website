@@ -10,7 +10,12 @@
       <a href="#about">About</a>
       <a href="#shop">Shop online</a>
       <a href="#local">Local books</a>
+      {%- if s.email != "" %}
+      <a class="nav-call" href="mailto:{{ s.email }}" data-copy-email="{{ s.email }}">Contact</a>
+      {%- else %}
       <a class="nav-call" href="tel:{{ s.phone_tel }}">Call us</a>
+      {%- endif %}
     </nav>
   </div>
 </header>
+<div class="toast" id="copy-toast" role="status" aria-live="polite"></div>

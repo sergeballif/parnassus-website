@@ -151,6 +151,43 @@
     });
   }
 
+  /* ---------- Contact button: copy the store email to the clipboard and say so ---------- */
+  var copyLink = document.querySelector('[data-copy-email]');
+  var toast = document.getElementById('copy-toast');
+  if (copyLink && toast) {
+    var toastTimer;
+    var showToast = function (email, ok) {
+      toast.textContent = '';
+      toast.appendChild(document.createTextNode(ok ? 'Email address copied to your clipboard' : 'Our email address'));
+      var small = document.createElement('small');
+      small.textContent = email;
+      toast.appendChild(small);
+      toast.classList.add('show');
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(function () { toast.classList.remove('show'); }, 3500);
+    };
+    var legacyCopy = function (text) {
+      var ta = document.createElement('textarea');
+      ta.value = text; ta.setAttribute('readonly', '');
+      ta.style.cssText = 'position:fixed;top:0;left:-9999px;opacity:0';
+      document.body.appendChild(ta); ta.select();
+      var ok = false;
+      try { ok = document.execCommand('copy'); } catch (err) {}
+      document.body.removeChild(ta);
+      return ok;
+    };
+    copyLink.addEventListener('click', function (e) {
+      var email = copyLink.getAttribute('data-copy-email');
+      e.preventDefault();
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(email).then(function () { showToast(email, true); },
+          function () { showToast(email, legacyCopy(email)); });
+      } else {
+        showToast(email, legacyCopy(email));
+      }
+    });
+  }
+
   /* ---------- pre-launch color-theme switcher ---------- */
   var switcher = document.querySelector('.theme-switcher');
   if (switcher) {
