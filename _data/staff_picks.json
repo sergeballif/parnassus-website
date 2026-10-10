@@ -1,26 +1,26 @@
 [
   {
+    "picker": "Charlotte",
+    "title": "The Guncle",
+    "author": "Steven Rowley",
+    "isbn": "9780525542308",
+    "blurb": "A funny, big-hearted story about a gay uncle who takes in his niece and nephew for a summer in Palm Springs. It’s full of wit and grief and heart, and you’ll laugh out loud before it quietly gets you.",
+    "cover": "/assets/covers/9780525542308-da39a3ee.jpg"
+  },
+  {
+    "picker": "Elsa",
+    "title": "The Hobbit",
+    "author": "J.R.R. Tolkien",
+    "isbn": "9780547928227",
+    "blurb": "Bilbo Baggins would much rather stay home, until a wizard and thirteen dwarves drag him off on an adventure with trolls, goblins, and a dragon. It’s the classic that started it all, and it’s still a joy to read aloud.",
+    "cover": "/assets/covers/9780547928227-da39a3ee.jpg"
+  },
+  {
     "picker": "Serge",
-    "title": "Placeholder Title One",
-    "author": "Author One",
-    "isbn": "",
-    "blurb": "A short note on why a bookseller loves this one goes here. The real picks arrive from the Google Sheet.",
-    "cover": ""
-  },
-  {
-    "picker": "Jenny",
-    "title": "Placeholder Title Two",
-    "author": "Author Two",
-    "isbn": "",
-    "blurb": "A short note on why a bookseller loves this one goes here. The real picks arrive from the Google Sheet.",
-    "cover": ""
-  },
-  {
-    "picker": "",
-    "title": "Placeholder Title Three",
-    "author": "Author Three",
-    "isbn": "",
-    "blurb": "A short note on why a bookseller loves this one goes here. The real picks arrive from the Google Sheet.",
-    "cover": ""
+    "title": "Humble Pi: A Comedy of Maths Errors",
+    "author": "Matt Parker",
+    "isbn": "9780593084694",
+    "blurb": "A very funny tour of the times math went wrong in real life, from collapsing bridges to confused spacecraft. You don’t need to love math to enjoy it, and you’ll leave feeling better about your own mistakes.",
+    "cover": "/assets/covers/9780593084694-da39a3ee.jpg"
   }
 ]
