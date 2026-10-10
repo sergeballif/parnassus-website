@@ -162,6 +162,15 @@
       var small = document.createElement('small');
       small.textContent = email;
       toast.appendChild(small);
+      /* place the popup just under the button, kept inside the screen */
+      toast.classList.remove('show');
+      var r = copyLink.getBoundingClientRect();
+      var cx = r.left + r.width / 2;
+      var w = toast.offsetWidth;
+      var left = Math.max(12, Math.min(cx - w / 2, document.documentElement.clientWidth - w - 12));
+      toast.style.left = left + 'px';
+      toast.style.top = (r.bottom + 14) + 'px';
+      toast.style.setProperty('--arrow-x', (cx - left) + 'px');
       toast.classList.add('show');
       clearTimeout(toastTimer);
       toastTimer = setTimeout(function () { toast.classList.remove('show'); }, 3500);
@@ -176,6 +185,7 @@
       document.body.removeChild(ta);
       return ok;
     };
+    window.addEventListener('scroll', function () { toast.classList.remove('show'); }, { passive: true });
     copyLink.addEventListener('click', function (e) {
       var email = copyLink.getAttribute('data-copy-email');
       e.preventDefault();
