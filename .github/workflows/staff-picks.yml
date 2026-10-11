@@ -9,6 +9,7 @@ on:
 
 permissions:
   contents: write
+  pages: write
 
 concurrency:
   group: staff-picks
@@ -29,6 +30,7 @@ jobs:
         run: python3 scripts/update_staff_picks.py
 
       - name: Commit changes
+        id: commit
         run: |
           git config user.name "staff-picks bot"
           git config user.email "actions@users.noreply.github.com"
@@ -38,4 +40,14 @@ jobs:
           else
             git commit -m "Update staff picks from Google Sheet"
             git push
+            echo "changed=true" >> "$GITHUB_OUTPUT"
           fi
+
+      # Pushes made by this job do not start a Pages build on their own,
+      # so ask Pages to rebuild the site whenever the picks changed.
+      - name: Rebuild the Pages site
+        if: steps.commit.outputs.changed == 'true'
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh api -X POST "repos/${{ github.repository }}/pages/builds"
