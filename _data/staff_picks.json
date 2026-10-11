@@ -4,7 +4,7 @@
     "title": "The Guncle",
     "author": "Steven Rowley",
     "isbn": "9780525542308",
-    "blurb": "Full of wit and grief and heart, and you’ll laugh out loud before it quietly gets you.",
+    "blurb": "Full of wit and grief and heart; you’ll laugh out loud before it quietly gets you.",
     "cover": "/assets/covers/9780525542308-da39a3ee.jpg"
   },
   {
@@ -16,11 +16,11 @@
     "cover": "/assets/covers/9780547928227-da39a3ee.jpg"
   },
   {
-    "picker": "Serge",
-    "title": "Humble Pi: A Comedy of Maths Errors",
-    "author": "Matt Parker",
-    "isbn": "9780593084694",
-    "blurb": "A very funny tour of the times math went wrong in real life, from collapsing bridges to confused spacecraft.",
-    "cover": "/assets/covers/9780593084694-da39a3ee.jpg"
+    "picker": "Charlotte",
+    "title": "Braiding Sweetgrass",
+    "author": "Robin Wall Kimmerer",
+    "isbn": "9781571313560",
+    "blurb": "Surprising life lessons we can learn from plants and nature.",
+    "cover": "/assets/covers/9781571313560-da39a3ee.jpg"
   }
 ]
