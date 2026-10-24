@@ -22,5 +22,13 @@
     "isbn": "9781571313560",
     "blurb": "Surprising life lessons we can learn from plants and nature.",
     "cover": "/assets/covers/9781571313560-da39a3ee.jpg"
+  },
+  {
+    "picker": "Serge",
+    "title": "Humble Pi: A Comedy of Maths Errors",
+    "author": "Matt Parker",
+    "isbn": "9780593084694",
+    "blurb": "A very funny tour of the times math went wrong in real life, from collapsing bridges to confused spacecraft.",
+    "cover": "/assets/covers/9780593084694-da39a3ee.jpg"
   }
 ]
