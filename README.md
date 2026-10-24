@@ -16,7 +16,7 @@ Until the January 1, 2027 takeover:
 |---|---|
 | Hours (summer/winter, holidays) | `_data/hours.yml` |
 | Phone, address, email, social/shop links, footer note | `_data/site.yml` |
-| Staff picks (top 3 rows of the Google Sheet) | `_data/staff_picks.json` (written by the hourly GitHub Action, see below) |
+| Staff picks (top 12 rows of the Google Sheet) | `_data/staff_picks.json` (written by the hourly GitHub Action, see below) |
 | "Made in Ketchikan" cards | `_data/local_books.yml` |
 | About text and new-owner welcome | `_data/about.yml` |
 | Page layout | `index.html`, `_includes/` |
@@ -38,7 +38,7 @@ Colors live in `_data/themes.yml` as named presets (BlueOrange is the original; 
 
 ## Staff picks (Google Sheet)
 
-Staff edit one Google Sheet; the site shows the **top 3 rows under the header**. To feature a new book, insert a row at the top.
+Staff edit one Google Sheet; the site shows the **top 12 rows under the header** in a carousel that shows 3 books at a time on a wide screen (2 on tablets, 1 on phones) and slides to the next set every 7 seconds. It pauses while someone hovers over it, arrows appear only on hover, and it swipes on touch screens. With 3 or fewer picks it stays a still grid. Row order is the carousel order.
 
 Sheet columns, in any order, header names not case-sensitive (template: `docs/staff-picks-template.csv`):
 

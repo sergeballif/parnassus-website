@@ -132,6 +132,21 @@ address{font-style:normal}
 .pick-author{font-weight:700;color:var(--c-primary);margin-top:2px}
 .pick-blurb{margin-top:8px;font-size:15.5px;line-height:1.45;color:var(--c-text-soft)}
 @container (max-width:860px){.picks{grid-template-columns:1fr}}
+/* staff-picks carousel: only active once JS adds .is-ready (otherwise the grid above is the fallback) */
+.carousel{position:relative}
+.carousel.is-ready .carousel-viewport{overflow:hidden;touch-action:pan-y}
+.carousel.is-ready .picks{position:relative;display:flex;gap:var(--gap,20px);transition:transform .7s cubic-bezier(.45,.05,.2,1);will-change:transform}
+.carousel.is-ready .picks.no-anim{transition:none}
+.carousel.is-ready .pick{flex:0 0 calc((100% - (var(--per,3) - 1) * var(--gap,20px)) / var(--per,3));box-sizing:border-box}
+.carousel-arrow{position:absolute;top:50%;z-index:2;width:44px;height:44px;margin-top:-22px;display:flex;align-items:center;justify-content:center;border:0;border-radius:50%;cursor:pointer;background:var(--c-primary);color:var(--c-paper);box-shadow:0 4px 14px color-mix(in srgb,var(--c-dark) 35%,transparent);opacity:0;pointer-events:none;transition:opacity .2s}
+.carousel-arrow--prev{left:-14px}
+.carousel-arrow--next{right:-14px}
+.carousel.is-ready:hover .carousel-arrow,.carousel.is-ready:focus-within .carousel-arrow{opacity:1;pointer-events:auto}
+.carousel-arrow:hover{background:var(--c-dark)}
+.carousel-arrow:focus-visible{outline:3px solid var(--c-focus);outline-offset:2px}
+@media (hover:none){.carousel.is-ready:hover .carousel-arrow{opacity:0;pointer-events:none}.carousel.is-ready:focus-within .carousel-arrow:focus-visible{opacity:1;pointer-events:auto}}
+@media (max-width:640px){.carousel-arrow--prev{left:-6px}.carousel-arrow--next{right:-6px}}
+@media (prefers-reduced-motion:reduce){.carousel.is-ready .picks{transition:none}}
 
 /* order band */
 .order-band{background:var(--c-band);color:var(--c-on-band)}

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Update the Staff Picks from the published Google Sheet.
 
-Reads the published CSV, keeps the TOP 3 rows under the header, cleans the text,
+Reads the published CSV, keeps the TOP 12 rows under the header, cleans the text,
 downloads a cover for each ISBN, and writes _data/staff_picks.json.
 
 Sheet columns (header names are case-insensitive; order doesn't matter):
@@ -27,7 +27,7 @@ import urllib.error
 import urllib.request
 from pathlib import Path
 
-MAX_PICKS = 3
+MAX_PICKS = 12
 LIMITS = {"picker": 30, "title": 120, "author": 80, "blurb": 280}
 MAX_COVER_BYTES = 3 * 1024 * 1024
 MIN_COVER_BYTES = 2000          # smaller than this is a "no cover" placeholder image
@@ -202,8 +202,7 @@ def main():
     picks = parse_rows(text)
     if not picks:
         sys.exit("No usable rows found in the sheet; leaving the staff picks unchanged.")
-    if len(picks) < MAX_PICKS:
-        log("Note: only %d pick(s) found; the site will show just those." % len(picks))
+    log("%d pick(s) found." % len(picks))
 
     keep = set()
     for pick in picks:

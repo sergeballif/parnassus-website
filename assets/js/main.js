@@ -198,6 +198,150 @@
     });
   }
 
+  /* ---------- staff-picks carousel ---------- */
+  (function () {
+    var root = document.getElementById('picks-carousel');
+    if (!root) return;
+    var viewport = root.querySelector('.carousel-viewport');
+    var list = root.querySelector('.picks');
+    var prevBtn = root.querySelector('.carousel-arrow--prev');
+    var nextBtn = root.querySelector('.carousel-arrow--next');
+    var originals = Array.prototype.slice.call(list.children);
+    var count = originals.length;
+    var WAIT = 7000;                       // pause between slides (ms)
+    var GAP = 20;
+    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
+    var per = 0, index = 0, timer = null, busy = false, held = false, offscreen = false;
+    var active = false;
+
+    function perView() {
+      var w = viewport.clientWidth;
+      return w >= 960 ? 3 : (w >= 620 ? 2 : 1);
+    }
+    function clones(flag) {
+      return originals.map(function (el) {
+        var c = el.cloneNode(true);
+        c.setAttribute('aria-hidden', 'true');
+        c.setAttribute('inert', '');
+        c.setAttribute('data-clone', flag);
+        return c;
+      });
+    }
+    function teardown() {
+      stop();
+      Array.prototype.slice.call(list.querySelectorAll('[data-clone]')).forEach(function (c) { c.remove(); });
+      list.style.transform = '';
+      root.classList.remove('is-ready');
+      prevBtn.hidden = nextBtn.hidden = true;
+      active = false;
+    }
+    function place(animate) {
+      var target = list.children[index];
+      if (!target) return;
+      if (!animate) list.classList.add('no-anim');
+      list.style.transform = 'translateX(' + (-target.offsetLeft) + 'px)';
+      if (!animate) { void list.offsetWidth; list.classList.remove('no-anim'); }
+    }
+    function setup() {
+      teardown();
+      per = perView();
+      list.style.setProperty('--per', per);
+      if (count <= per) { return; }      // everything fits: leave the plain grid
+      var before = clones('before'), after = clones('after');
+      before.forEach(function (c) { list.insertBefore(c, originals[0]); });
+      after.forEach(function (c) { list.appendChild(c); });
+      root.classList.add('is-ready');
+      root.style.setProperty('--gap', GAP + 'px');
+      prevBtn.hidden = nextBtn.hidden = false;
+      index = count;                      // first real item
+      active = true;
+      place(false);
+      schedule();
+    }
+    function wrap() {                     // jump back into the middle copy, invisibly
+      if (index < count) { index += count; place(false); }
+      else if (index >= 2 * count) { index -= count; place(false); }
+    }
+    function go(dir) {
+      if (!active || busy) return;
+      busy = true;
+      stop();
+      wrap();
+      index += dir * per;
+      place(!reduce.matches);
+      var done = false;
+      var finish = function () {
+        if (done) return; done = true; busy = false; wrap(); schedule();
+      };
+      list.addEventListener('transitionend', function te(e) {
+        if (e.target !== list) return;
+        list.removeEventListener('transitionend', te); finish();
+      });
+      setTimeout(finish, reduce.matches ? 0 : 900);
+    }
+    function stop() { if (timer) { clearTimeout(timer); timer = null; } }
+    function schedule() {
+      stop();
+      if (!active || held || offscreen || reduce.matches || document.hidden) return;
+      timer = setTimeout(function () { go(1); }, WAIT);
+    }
+    prevBtn.addEventListener('click', function () { go(-1); });
+    nextBtn.addEventListener('click', function () { go(1); });
+
+    root.addEventListener('mouseenter', function () { held = true; stop(); });
+    root.addEventListener('mouseleave', function () { held = root.contains(document.activeElement) && root.matches(':focus-within'); schedule(); });
+    root.addEventListener('focusin', function (e) {
+      held = true; stop();
+      var item = e.target.closest && e.target.closest('.pick');   // keep a tabbed-to book in view
+      if (item && active && !item.hasAttribute('data-clone')) {
+        var k = originals.indexOf(item);
+        var lo = index, hi = index + per - 1, pos = count + k;
+        if (index < count || index >= 2 * count) wrap();
+        lo = index; hi = index + per - 1;
+        if (pos < lo || pos > hi) { index = count + Math.floor(k / per) * per; if (index + per > list.children.length) index = count + k; place(false); }
+      }
+    });
+    root.addEventListener('focusout', function () {
+      setTimeout(function () { if (!root.contains(document.activeElement)) { held = false; schedule(); } }, 0);
+    });
+    document.addEventListener('visibilitychange', function () { document.hidden ? stop() : schedule(); });
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(function (entries) {
+        offscreen = !entries[0].isIntersecting;
+        offscreen ? stop() : schedule();
+      }, { threshold: 0.2 }).observe(root);
+    }
+    if (reduce.addEventListener) reduce.addEventListener('change', function () { reduce.matches ? stop() : schedule(); });
+
+    /* swipe on touch screens */
+    var x0 = null, y0 = 0, moved = false;
+    viewport.addEventListener('pointerdown', function (e) {
+      if (e.pointerType === 'mouse') return;
+      x0 = e.clientX; y0 = e.clientY; moved = false; held = true; stop();
+    });
+    viewport.addEventListener('pointerup', function (e) {
+      if (x0 === null) return;
+      var dx = e.clientX - x0, dy = e.clientY - y0;
+      x0 = null;
+      if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy)) { moved = true; go(dx < 0 ? 1 : -1); }
+      held = root.matches(':focus-within');
+      if (!moved) schedule();
+    });
+    viewport.addEventListener('pointercancel', function () { x0 = null; held = false; schedule(); });
+    viewport.addEventListener('click', function (e) { if (moved) { e.preventDefault(); e.stopPropagation(); moved = false; } }, true);
+
+    var lastW = 0, rt = null;
+    window.addEventListener('resize', function () {
+      clearTimeout(rt);
+      rt = setTimeout(function () {
+        var w = viewport.clientWidth;
+        if (w !== lastW) { lastW = w; setup(); }
+      }, 150);
+    });
+    lastW = viewport.clientWidth;
+    setup();
+  })();
+
   /* ---------- pre-launch color-theme switcher ---------- */
   var switcher = document.querySelector('.theme-switcher');
   if (switcher) {

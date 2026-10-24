@@ -67,8 +67,10 @@ layout: default
       <p class="book-search-note">Opens in a new tab on our Bookshop.org shop.</p>
     </form>
     <h3 class="kicker">Staff picks</h3>
+    <div class="carousel" id="picks-carousel" role="region" aria-roledescription="carousel" aria-label="Staff picks">
+    <div class="carousel-viewport">
     <ul class="picks">
-      {%- for p in site.data.staff_picks limit: 3 %}
+      {%- for p in site.data.staff_picks limit: 12 %}
       {%- assign buy = s.links.bookshop %}
       {%- if s.bookshop_affiliate_id != "" and p.isbn != "" %}{% capture buy %}https://bookshop.org/a/{{ s.bookshop_affiliate_id }}/{{ p.isbn }}{% endcapture %}{% endif %}
       <li class="pick">
@@ -92,6 +94,10 @@ layout: default
       </li>
       {%- endfor %}
     </ul>
+    </div>
+    <button class="carousel-arrow carousel-arrow--prev" type="button" aria-label="Previous staff picks" hidden><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" focusable="false"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+    <button class="carousel-arrow carousel-arrow--next" type="button" aria-label="Next staff picks" hidden><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" focusable="false"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+    </div>
   </div>
 </section>
 
