@@ -18,7 +18,7 @@ theme_switcher: false
 # <meta name="robots" content="noindex, nofollow"> and robots.txt
 # disallows everything. Flip to true only at launch (see README.md).
 # ---------------------------------------------------------------
-launched: false
+launched: true
 
 # Keep these out of the published site.
 exclude:
