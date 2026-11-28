@@ -19,7 +19,7 @@ seasons:
 
   - name: winter
     label: "Winter hours · Oct–Apr"
-    months: [10, 11, 12, 1, 2, 3, 4]
+    months: [10, 11, 1, 2, 3, 4]
     rows:
       - label: Monday
         days: [1]
@@ -33,8 +33,22 @@ seasons:
         open: "12:00"
         close: "16:00"
 
+  - name: christmas
+    label: "December hours"
+    months: [12]
+    rows:
+      - label: Mon–Sat
+        days: [1, 2, 3, 4, 5, 6]
+        open: "10:00"
+        close: "17:00"
+      - label: Sunday
+        days: [0]
+        open: "12:00"
+        close: "16:00"
+  
+
 # Dates the store is closed all day, as "YYYY-MM-DD". Still to be decided.
-holidays: []
+holidays: ["2027-12-25"]
 #  - "2027-01-01"
 #  - "2027-11-25"
 #  - "2027-12-25"
